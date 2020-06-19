@@ -9,7 +9,7 @@
 {
     Person front;
     Person back;
-    
+   
     public Q ()
     {
         this.front = null;
@@ -28,10 +28,25 @@
            this.back.setPersonBehindMe(toAdd);          
            this.back=toAdd; 
         }
-       System.out.println(front);
-       System.out.println(back);
      }
-    
+    public void printQ ()
+     {
+       Person test = this.front;
+       while (test != null){
+         System.out.println(test.getName()); 
+         test = test.getFollower();
+        
+        }
+    }
+    public Person dequeue()
+    {
+      Person atFront = this.front; // we are remenbering who is at the front
+      this.front = this.front.getFollower();
+      return atFront;
+      
+    }
+
+
 }
     
   

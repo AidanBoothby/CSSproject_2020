@@ -7,8 +7,7 @@
  */
 public class Random
 {
-   Person Front;
-   Person Back;
+   
    int i = 30;
    public Random (){ 
      for (int i = 30; i>1;i--){

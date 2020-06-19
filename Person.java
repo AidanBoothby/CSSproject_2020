@@ -8,6 +8,8 @@
 
     public class Person
 {
+   Person front; 
+   Person back;
    String name; // what will we call this one
    Person human; //person behind us in the line
    public Person()
@@ -26,7 +28,15 @@
    public void setPersonBehindMe(Person behind){
      this.human=behind;
     }
-   
-   
+   //returns the name of the person
+   public String getName () 
+    {
+       return this.name;
+    }
+   //returns the name of the follower
+   public Person getFollower()
+    {
+       return this.human;
+    }
 }
 
