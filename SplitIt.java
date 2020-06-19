@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class SplitIt
 {
     // instance variables - replace the example below with your own
-    
+    //github test
 
     /**
      * Constructor for objects of class SplitIt
