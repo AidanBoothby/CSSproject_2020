@@ -7,25 +7,15 @@
  */
 public class Random
 {
-   
-   int i = 30;
-   public Random (){ 
-     for (int i = 30; i>1;i--){
-   
+   public String Random (){
       var d = Math.random();
       if (d< 0.7)
-      System.out.println("student");
+      return ("student");
       //60% chance that students are selected
       else 
-      System.out.println("teacher");  
+      return ("teacher");  
       //40%chance that the teacher is selected
-      
-       
-        
-    }  
-       
+    }      
  }
     
   
-  
-}

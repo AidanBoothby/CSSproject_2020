@@ -12,9 +12,10 @@
    Person back;
    String name; // what will we call this one
    Person human; //person behind us in the line
+   Random B = new Random();
    public Person()
     {
-      name="anonymous.";  
+       this.name = B.Random(); 
     }
     
    public Person(String name){
