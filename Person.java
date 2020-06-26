@@ -8,14 +8,15 @@
 
     public class Person
 {
-   Person front; 
-   Person back;
+   
    String name; // what will we call this one
    Person human; //person behind us in the line
-   Random B = new Random();
+   int TimeInQ; //time they enterthe Queue.
    public Person()
     {
+       Random B = new Random();
        this.name = B.Random(); 
+       
     }
     
    public Person(String name){
@@ -39,5 +40,13 @@
     {
        return this.human;
     }
+   int TimeInQ(){
+       return this.TimeInQ;
+    }
+   //sets the time they enter the Queue to "entry"
+   void setTime(int entry){
+      TimeInQ = entry;
+    }
+   
 }
 

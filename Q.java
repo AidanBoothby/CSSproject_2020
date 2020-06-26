@@ -10,28 +10,25 @@
     Person front;
     Person back;
     int length;
+    int TimeInQ;
+    
     public Q ()
     {
         this.front = null;
         this.back = null;
         this.length = 0;
+        
         for (int i = 1; i < 3600; i++)
-	        {
+	  {
 	          Person queuer = new Person();
 	          if(length < 20){
 	              enqueue (queuer); 
 	           }
 	           
+	
 	       }
-	
-	       
-	       
 	printQ();
-        
-	
-        
-        
-        
+     
         // for loop that adds people to the queue
         // so it prints out questions and when inputted runs the code
     }
@@ -67,13 +64,15 @@
       Person atFront = this.front; // we are remenbering who is at the front
       this.front = this.front.getFollower();
       return atFront;
-      
     }
-    public int Length()
+    void Length()
     {
-        return this.length; 
+        System.out.println ("The length of the Queue is " +length); 
     }
-    
+    void TimeInQ()
+    {
+         System.out.println ("The time they entered the queue was "+TimeInQ+" seconds ");
+    }
 }
     
   

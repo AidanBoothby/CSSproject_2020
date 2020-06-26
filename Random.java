@@ -7,15 +7,16 @@
  */
 public class Random
 {
-   public String Random (){
-      var d = Math.random();
+    double d;
+    public String Random (){
+      d = Math.random();
       if (d< 0.7)
-      return ("student");
-      //60% chance that students are selected
+         return ("student");
+        //70% chance that students are selected
       else 
-      return ("teacher");  
-      //40%chance that the teacher is selected
-    }      
+         return ("teacher");  
+        //30%chance that the teacher is selected
+       }  
  }
     
   
