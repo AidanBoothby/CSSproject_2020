@@ -15,6 +15,25 @@
         this.front = null;
         this.back = null;
         this.length = 0;
+        for (int i = 1; i < 3600; i++)
+	        {
+	          Person queuer = new Person();
+	          if(length < 20){
+	              enqueue (queuer); 
+	           }
+	           
+	       }
+	
+	       
+	       
+	printQ();
+        
+	
+        
+        
+        
+        // for loop that adds people to the queue
+        // so it prints out questions and when inputted runs the code
     }
     public boolean queueEmpty()
     {
@@ -54,7 +73,7 @@
     {
         return this.length; 
     }
-
+    
 }
     
   
