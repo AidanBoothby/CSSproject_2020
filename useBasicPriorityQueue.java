@@ -7,16 +7,19 @@
  */
 public class useBasicPriorityQueue
 {
-    private useBasicPriorityQueue q; //our standard queue
+    private basicPriorityQueue q; //our standard queue
     
     public useBasicPriorityQueue()
     {
-       q= new  useBasicPriorityQueue(); //queue for students
+       q= new basicPriorityQueue(); //queue for students
        
-       for (int i=0; i<10; i++){
+       for (int student=0; student<10; student++){
          // we are going to give priority to the teacher
-         System.out.println ("About to Enqueue "+i);
-         q.enqueue(i,(i%teacher==0));
-        }
+         System.out.println ("About to Enqueue "+student);
+         q.enqueue(student,(student%3==0));
+         }
+        while (! q.queueEmpty())
+         System.out.println(q.dequeue());
+         
     }
 }

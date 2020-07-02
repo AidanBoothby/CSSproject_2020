@@ -11,6 +11,7 @@
     Person back;
     int length;
     int TimeInQ;
+
     
     public Q ()
     {
@@ -20,12 +21,10 @@
         
         for (int i = 1; i < 3600; i++)
 	  {
-	          Person queuer = new Person();
-	          if(length < 20){
+	   Person queuer = new Person();
+	   if(length < 20){
 	              enqueue (queuer); 
 	           }
-	           
-	
 	       }
 	printQ();
      
@@ -73,6 +72,8 @@
     {
          System.out.println ("The time they entered the queue was "+TimeInQ+" seconds ");
     }
+    
+    
 }
     
   

@@ -10,4 +10,12 @@ public class Simulation
   Q cafe;
   Person hungry;
   
+  private basicPriorityQueue q; //our standard queue
+    
+    public Simulation()
+    {
+       q= new basicPriorityQueue(); //queue for students
+       
+  
+  }
 }
