@@ -8,22 +8,23 @@
 
     public class Person
 {
-   
-   String name; // what will we call this one
-   Person human; //person behind us in the line
-   int TimeInQ; //time they enterthe Queue.
+   private double d;
+   private int name; // what will we call this one
+   private Person human; //person behind us in the line
+   private int TimeInQ; //time they enterthe Queue.
+   private int id; // gives person a identification 
    public Person()
     {
-       Random B = new Random();
-       this.name = B.Random(); 
+       //Random B = new Random();
+       this.name = Random();
        
     }
     
-   public Person(String name){
+   public Person(int name){
      this.name=name;   
     }
     
-   public void setName(String name){
+   public void setName(int name){
      this.name=name;     
     }
     // this sets the person that is behind me
@@ -31,7 +32,7 @@
      this.human=behind;
     }
    //returns the name of the person
-   public String getName () 
+   public int getName () 
     {
        return this.name;
     }
@@ -47,6 +48,22 @@
    void setTime(int entry){
       TimeInQ = entry;
     }
-   
+   //random teacher or student code
+   public int Random (){
+      d = Math.random();
+      if (d< 0.7)
+         return (0);
+        //70% chance that students are selected
+      else 
+         return (1);  
+        //30%chance that the teacher is selected
+       }   
+   public void id(int length){
+       this.id = length;
+    }
+   public int getID(){
+        return(this.id);
+    }
+    
 }
 
