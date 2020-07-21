@@ -53,10 +53,10 @@
       d = Math.random();
       if (d< 0.7)
          return (0);
-        //70% chance that students are selected
+        //chamce its s student
       else 
          return (1);  
-        //30%chance that the teacher is selected
+        //chance its a teacher
        }   
    public void id(int length){
        this.id = length;

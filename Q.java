@@ -5,9 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
+
 import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
@@ -17,8 +15,9 @@ public class Q
 {
     Person front;
     Person back;
-    int length;
+    int length = -1;
     int TimeInQ;
+    int PeopleServed;
     Person People[] = new Person[10];
     public static ArrayList<Person> normalQ = new ArrayList();
     public static ArrayList<Person> priorityQ = new ArrayList();
@@ -27,7 +26,7 @@ public class Q
     {
         this.front = null;
         this.back = null;
-        this.length = -1;
+        this.length = length;
 
         // for loop that adds people to the queue
         // so it prints out questions and when inputted runs the code
@@ -54,6 +53,7 @@ public class Q
     {
         this.length = this.length +1;
         toAdd.id(this.length);
+        
         if (queueEmpty())  {        
             this.front = toAdd;
             this.back = toAdd;
@@ -88,6 +88,7 @@ public class Q
     {
         this.length = this.length -1;
         Person atFront = this.front; // we are remenbering who is at the front
+        
         this.front = this.front.getFollower();
         return atFront;
     }
@@ -96,7 +97,11 @@ public class Q
     {
         System.out.println ("The length of the Queue is " +length); 
     }
-
+    void PeopleServed()
+    {
+      System.out.println ("the amount of people served " +PeopleServed);
+    }
+    
     void TimeInQ()
     {
         System.out.println ("The time they entered the queue was "+TimeInQ+" seconds ");
