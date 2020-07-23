@@ -26,7 +26,7 @@ public class Simulation extends JFrame implements ActionListener
             hungry = new Person();
             cafe.enqueue(hungry);
         }
-        Q.print();   
+        cafe.print();   
 
         for (int i=0; i<10; i++)
         {
@@ -34,32 +34,31 @@ public class Simulation extends JFrame implements ActionListener
             System.out.println(hungry.getID());
         }  
 
-        System.out.println("********"); 
-
-        Q staff = new Q();
-        Q Students = new Q();
-        for (int i=0; i<7; i++){ //adding 7 hungry students
-            hungry = new Person();
-            Students.enqueue(hungry);
-        }    
-        for (int i=0; i<2; i++){ //adding hungry staff
-            hungry = new Person();
-            staff.enqueue(hungry);
-        }  
+        System.out.println("\n********"); 
+        //serving the people in the queue
+        for (int i=0; i<10; i++){
+          Q.normalQ.get(i).enqueue(hungry);  
+        
+        
+        }
+        
+        
+        
+        
         for (int i=0; i<5; i++){ //serving coustomers
             if (!staff.queueEmpty()){
                 hungry = staff.dequeue();
                 System.out.println("staff served");
             } else 
-            if (!Students.queueEmpty()){
-                hungry = Students.dequeue();
+            if (!normalQ.queueEmpty()){
+                hungry = normalQ.dequeue();
                 System.out.println("Student served");
             } else System.out.println("served more than in Queue");
 
         }// for serving
         System.out.println("********"); 
-        staff.printQ();
-        Students.printQ();
+        Q.priotityQ.printQ();
+        Q.normalQ.printQ();
         menuWithAction();
     }
 
@@ -117,7 +116,6 @@ public class Simulation extends JFrame implements ActionListener
             cafe.TimeInQ();
             break; //connect timer
             case "people served": 
-
             cafe.PeopleServed();
             break ;
             //foods

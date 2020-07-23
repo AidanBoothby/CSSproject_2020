@@ -37,11 +37,11 @@ public class Q
         for(int i = 0;i<normalQ.size();i++){
             System.out.print(normalQ.get(i).getID()+ " ");
         }
-        System.out.println("");
+        System.out.println("\n");
         for(int i = 0;i<priorityQ.size();i++){
             System.out.print(priorityQ.get(i).getID()+ " ");
         }
-        System.out.println("*****");
+        System.out.println("\n*****");
     }
 
     public boolean queueEmpty()
@@ -53,6 +53,7 @@ public class Q
     {
         this.length = this.length +1;
         toAdd.id(this.length);
+       
         
         if (queueEmpty())  {        
             this.front = toAdd;
@@ -86,11 +87,18 @@ public class Q
 
     public Person dequeue()
     {
-        this.length = this.length -1;
-        Person atFront = this.front; // we are remenbering who is at the front
+        //this.length = this.length -1;
+        //Person atFront = this.front; // we are remenbering who is at the front
+        //this.front = this.front.getFollower();
+        //return atFront;
         
-        this.front = this.front.getFollower();
-        return atFront;
+        if (this.priorityQ.size()>0) {
+           return priorityQ.remove(0);
+        
+        } else {
+           return normalQ.remove(0);
+        }
+     
     }
 
     void Length()
