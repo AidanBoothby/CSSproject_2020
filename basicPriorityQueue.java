@@ -7,9 +7,13 @@
  */
 public class basicPriorityQueue
 {
-    private basicElement front;  // Element at the front of the priority queue
-    private basicElement pEnd ;   // last element with high priority
-    private basicElement end;    // Element at the end of the queue
+    int Length = -1;
+    int TimeInQ;
+    int PeopleServed;
+    
+    public Person front;  // Element at the front of the priority queue
+    private Person pEnd ;   // last element with high priority
+    private Person end;    // Element at the end of the queue
 
     /**
      * Constructor for objects of class basicPriorityQueue
@@ -28,47 +32,56 @@ public class basicPriorityQueue
      * behind other priority components.
      */
 
-    void enqueue(int item, boolean highPriority){
-        basicElement box = new basicElement(item); // Wrap our item up in a box to put in the queue
+    void enqueue(Person item, boolean highPriority){
+        //Person item = new Person(item); // Wrap our item up in a item to put in the queue
+        //System.out.println (item.getName()+""+highPriority);
+        
+        
         if(highPriority){
             if (queueEmpty()){  // empty queue
-                this.front=box;
-                this.pEnd=box;
-                this.end=box;
+                this.front=item;
+                this.pEnd=item;
+                this.end=item;
             }
             else  // if not empty, then add it at the end of the priority bit of the queue
             {    
                 // First a special case - queue non empty, but priority section was empty
                 if (this.pEnd==null) {
-                    box.setFollows(this.front.getFollows());
-                    this.front=box;                                        
+                    item.setPersonBehindMe(this.front.getFollower());
+                    this.front=item;                                        
                 } else { // normal priority queue enqueue                
-                    // whoever was the following the previous end of the priority q, is not after box;
-                    box.setFollows(this.pEnd.getFollows()); 
-                    this.pEnd.setFollows(box);        // put box after the current last priority element;                
+                    // whoever was the following the previous end of the priority q, is not after item;
+                    item.setPersonBehindMe(this.pEnd.getFollower()); 
+                    this.pEnd.setPersonBehindMe(item);        // put item after the current last priority element;                
                 } 
-                this.pEnd=box;                      // make box the last priority element.
+                this.pEnd=item;                      // make item the last priority element.
             }  // high priority, not empty queue
         } // high priority
         else { // not high priority
             if (this.front == null)  // empty queue
-                this.front=box;
+                this.front=item;
             else  // if not empty, then add it at the end of the queue
-                this.end.setFollows(box);        
-            this.end=box;
+                this.end.setPersonBehindMe(item);        
+            this.end=item;
         }
-
+        this.Length = this.Length +1;
+        item.id(this.Length);
     } // enqueue
 
     /*
      * Remove the front item from the priority queue
      */
-    int dequeue(){
-        int hold=this.front.getValue();
+    Person dequeue(){
+        if (this.front==null) 
+        return null;
+        
+        
+        Person hold=this.front;
         if ( this.front== this.pEnd) pEnd=null;// this was the last high priority item in the queue            
-        this.front=this.front.getFollows();
+        this.front=this.front.getFollower();
         if (this.front==null) this.end=null;
         return hold;
+        
     } // dequeue
 
     /*
@@ -78,5 +91,21 @@ public class basicPriorityQueue
     public boolean queueEmpty(){
         return this.front==null;
     }
+    public void printQ ()
+    {
+        Person test = this.front;
+        while (test != null){
+            System.out.println(test.getName()); 
+            test = test.getFollower();
 
-}
+        }
+    }
+    void Length()
+    {
+        System.out.println ("The length of the Queue is " +Length); 
+    }
+     void PeopleServed()
+    {
+      System.out.println ("the amount of people served " +PeopleServed);
+    }
+ }

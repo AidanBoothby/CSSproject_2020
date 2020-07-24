@@ -16,7 +16,7 @@
    public Person()
     {
        //Random B = new Random();
-       this.name = Random();
+       this.name = 0;
        
     }
     
@@ -49,7 +49,7 @@
       TimeInQ = entry;
     }
    //random teacher or student code
-   public int Random (){
+   /*public int Random (){
       d = Math.random();
       if (d< 0.7)
          return (0);
@@ -57,7 +57,7 @@
       else 
          return (1);  
         //chance its a teacher
-       }   
+       }*/   
    public void id(int length){
        this.id = length;
     }

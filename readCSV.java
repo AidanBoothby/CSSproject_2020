@@ -21,7 +21,7 @@ public class readCSV
 {
 
     final String filename="arrivals.csv"; // change to reflect the CSV we are reading
-    final int MAXLINES=100; // for ease of writing, we are only going to read at most 100 lines.
+    final int MAXLINES=50; // for ease of writing, we are only going to read at most 100 lines.
     final int VALUESPERLINE=4;  // for ease of writing, we know how many values we get on each line.
     /**
      * Constructor for objects of class readCSV
